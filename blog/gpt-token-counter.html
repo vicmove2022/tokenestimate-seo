@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPT Token Counter — Count GPT-4o & GPT-5 Tokens Free (2026)</title>
+  <meta name="description" content="Free GPT token counter. Count tokens for GPT-4o, GPT-4, GPT-5, o1, o3 and all OpenAI models. Get exact counts with tiktoken.">
+  <meta name="keywords" content="GPT token counter, count GPT tokens, GPT-4o tokens, GPT-5 tokens, OpenAI token counter, tiktoken counter">
+  <meta name="author" content="TokenCalc">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tokenestimate.com/blog/gpt-token-counter.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "GPT Token Counter — Count GPT-4o & GPT-5 Tokens Free (2026)",
+    "description": "Free GPT token counter with exact tiktoken counts.",
+    "author": { "@type": "Organization", "name": "TokenCalc" },
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4f8cff" stroke-width="2" aria-hidden="true">
+          <path d="M12 2 4 6v6c0 5 3.4 9.1 8 10 4.6-.9 8-5 8-10V6l-8-4Z"/>
+          <path d="m9 12 2 2 4-4" stroke="#22d3ee" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Token<span class="grad">Calc</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../#tool">Calculator</a>
+        <a href="tiktoken-guide.html">Tiktoken Guide</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <span class="breadcrumb">Blog / GPT Guide</span>
+        <h1>GPT Token Counter</h1>
+        <p class="lead">Count tokens for all GPT models with exact tiktoken precision. Free, private, instant.</p>
+        <div class="meta">
+          <span>Aug 16, 2026</span> · <span>7 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="blog-body">
+          <h2>What is a GPT Token?</h2>
+          <p>A token is the basic unit of text that GPT models process. One token can be a word, part of a word, or even a single character.</p>
+
+          <h2>Supported GPT Models</h2>
+          <ul>
+            <li>GPT-5, GPT-5 mini, GPT-5.5</li>
+            <li>GPT-4o, GPT-4o mini</li>
+            <li>o1, o1 mini, o3, o3 mini</li>
+            <li>GPT-4, GPT-4 Turbo</li>
+            <li>GPT-3.5 Turbo</li>
+          </ul>
+
+          <h2>How to Count GPT Tokens</h2>
+          <pre><code>import tiktoken
+
+# For GPT-4o, GPT-5, o-series
+enc = tiktoken.get_encoding("o200k_base")
+tokens = enc.encode("Your text here")
+print(f"Tokens: {len(tokens)}")</code></pre>
+
+          <h2>Token Efficiency Tips</h2>
+          <ol>
+            <li>Use concise language</li>
+            <li>Avoid redundant instructions</li>
+            <li>Leverage system prompts for context</li>
+            <li>Chunk long documents</li>
+          </ol>
+
+          <h2>Cost Estimation</h2>
+          <table>
+            <thead>
+              <tr><th>Model</th><th>Input $/1M</th><th>Output $/1M</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>GPT-5</td><td>$10.00</td><td>$40.00</td></tr>
+              <tr><td>GPT-4o</td><td>$2.50</td><td>$10.00</td></tr>
+              <tr><td>GPT-4o mini</td><td>$0.15</td><td>$0.60</td></tr>
+              <tr><td>o1</td><td>$15.00</td><td>$60.00</td></tr>
+              <tr><td>o1 mini</td><td>$1.10</td><td>$4.40</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Try Our Free Counter</h2>
+          <p><a href="../#tool" class="btn btn-primary">Count GPT Tokens</a></p>
+
+          <h2>Related Articles</h2>
+          <ul>
+            <li><a href="tiktoken-guide.html">Tiktoken Complete Guide</a></li>
+            <li><a href="how-to-count-tokens.html">How to Count Tokens</a></li>
+            <li><a href="openai-tokenizer-explained.html">OpenAI Tokenizer Explained</a></li>
+          </ul>
+        </div>
+
+        <aside class="blog-sidebar">
+          <div class="sidebar-card">
+            <h3>Count GPT Tokens</h3>
+            <p>Free and accurate</p>
+            <a href="../gpt-5-token-calculator.html" class="btn btn-primary">Try Tool</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <strong>TokenCalc</strong> · Free AI Token Calculator
+      </div>
+      <div>
+        <a href="../privacy.html">Privacy Policy</a> · © 2026 TokenCalc
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
