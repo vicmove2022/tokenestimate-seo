@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Embedding Models Comparison: Costs and Performance 2026</title>
-  <meta name="description" content="Compare embedding models for vector search. OpenAI, Cohere, and open-source options with costs and performance benchmarks.">
-  <meta name="keywords" content="embedding models, vector embeddings, OpenAI embeddings, Cohere embeddings, text embeddings, similarity search">
+  <title>Embedding Models Comparison: text-embedding-3 vs jina vs Voyage</title>
+  <meta name="description" content="Compare embedding models for RAG systems. OpenAI, Jina, Voyage AI, and other embedding providers - accuracy, speed, and pricing.">
+  <meta name="keywords" content="embedding models, text embeddings, RAG embeddings, OpenAI embeddings, Jina embeddings, Voyage AI, vector search">
   <meta name="author" content="TokenCalc">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tokenestimate.com/blog/embedding-models-comparison.html">
@@ -16,8 +16,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Embedding Models Comparison: Costs and Performance 2026",
-    "description": "Compare embedding models for vector search.",
+    "headline": "Embedding Models Comparison 2026",
+    "description": "Compare embedding models for RAG systems.",
     "author": { "@type": "Organization", "name": "TokenCalc" },
     "datePublished": "2026-08-16",
     "dateModified": "2026-08-16"
@@ -46,9 +46,9 @@
   <main>
     <section class="blog-hero">
       <div class="container">
-        <span class="breadcrumb">Blog / Embeddings</span>
-        <h1>Embedding Models Comparison 2026</h1>
-        <p class="lead">Compare costs and performance of OpenAI, Cohere, and open-source embedding models.</p>
+        <span class="breadcrumb">Blog / Comparison</span>
+        <h1>Embedding Models Comparison</h1>
+        <p class="lead">Compare embedding models for your RAG system. OpenAI, Jina, Voyage, and more.</p>
         <div class="meta">
           <span>Aug 16, 2026</span> · <span>9 min read</span>
         </div>
@@ -58,67 +58,58 @@
     <section class="blog-content">
       <div class="container">
         <div class="blog-body">
-          <h2>What Are Embeddings?</h2>
-          <p>Embeddings convert text into numerical vectors that capture semantic meaning. They're essential for similarity search, recommendation systems, and RAG applications.</p>
+          <h2>What are Embeddings?</h2>
+          <p>Embeddings convert text into numerical vectors that capture semantic meaning. Similar texts have similar vectors, enabling semantic search.</p>
 
-          <h2>Embedding Model Comparison</h2>
+          <h2>Model Comparison</h2>
           <table>
             <thead>
-              <tr><th>Model</th><th>Provider</th><th>Cost/1K</th><th>Dimensions</th><th>Max Tokens</th></tr>
+              <tr><th>Model</th><th>Dimensions</th><th>Cost/1M tokens</th><th>Accuracy</th><th>Speed</th></tr>
             </thead>
             <tbody>
-              <tr><td text-align=center>text-embedding-3-small</td><td>OpenAI</td><td>$0.00002</td><td>1536</td><td>8191</td></tr>
-              <tr><td>text-embedding-3-large</td><td>OpenAI</td><td>$0.00013</td><td>3072</td><td>8191</td></tr>
-              <tr><td>embedding-001</td><td>Google</td><td>$0.000025</td><td>768</td><td>2048</td></tr>
-              <tr><td>text-embedding-004</td><td>Google</td><td>$0.00002</td><td>768</td><td>2048</td></tr>
-              <tr><td>embed-multilingual-v3.0</td><td>Cohere</td><td>$0.0001</td><td>1024</td><td>512</td></tr>
-              <tr><td>gte-Qwen2-7B</td><td>Alibaba</td><td>$0 (open)</td><td>3584</td><td>32768</td></tr>
-              <tr><td>nomic-embed-text-v1.5</td><td>Nomic</td><td>$0 (open)</td><td>768</td><td>8192</td></tr>
+              <tr><td>text-embedding-3-small</td><td>1536</td><td>$0.02</td><td>85%</td><td>Fast</td></tr>
+              <tr><td>text-embedding-3-large</td><td>3072</td><td>$0.13</td><td>92%</td><td>Medium</td></tr>
+              <tr><td>jina-embeddings-v2-base</td><td>768</td><td>$0.10</td><td>82%</td><td>Fast</td></tr>
+              <tr><td>Voyage-2</td><td>1024</td><td>$0.10</td><td>88%</td><td>Fast</td></tr>
+              <tr><td>sentence-transformers</td><td>384</td><td>$0 (self-host)</td><td>75%</td><td>Very fast</td></tr>
             </tbody>
           </table>
 
-          <h2>Performance Benchmarks</h2>
-          <p>On MTEB benchmark (higher is better):</p>
+          <h2>Choosing the Right Embedding</h2>
           <ul>
-            <li><strong>text-embedding-3-large:</strong> 64.5%</li>
-            <li><strong>gte-Qwen2-7B:</strong> 63.2%</li>
-            <li><strong>nomic-embed-text-v1.5:</strong> 62.8%</li>
-            <li><strong>text-embedding-3-small:</strong> 61.3%</li>
-            <li><strong>text-embedding-ada-002:</strong> 61.0%</li>
+            <li><strong>Accuracy-critical:</strong> text-embedding-3-large, Voyage-2</li>
+            <li><strong>Cost-sensitive:</strong> text-embedding-3-small, jina-embeddings</li>
+            <li><strong>Self-hosted:</strong> sentence-transformers</li>
+            <li><strong>Production:</strong> Voyage-2 or text-embedding-3-large</li>
           </ul>
 
-          <h2>Cost Calculation Example</h2>
-          <p>For embedding 1M documents:</p>
-          <ul>
-            <li>OpenAI small: $20</li>
-            <li>OpenAI large: $130</li>
-            <li>Google: $25</li>
-            <li>Cohere: $100</li>
-            <li>Open source (local): $0 + GPU cost</li>
-          </ul>
+          <h2>Cost Impact on RAG</h2>
+          <pre><code>Embedding 10,000 documents (avg 1000 tokens each):
+text-embedding-3-small: $0.20
+text-embedding-3-large: $1.30
+jina-embeddings-v2: $1.00
+Voyage-2: $1.00
 
-          <h2>When to Use Each</h2>
-          <table>
-            <thead>
-              <tr><th>Use Case</th><th>Recommended</th><th>Reason</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>General purpose</td><td>text-embedding-3-small</td><td>Best value</td></tr>
-              <tr><td>High accuracy needed</td><td>text-embedding-3-large</td><td>Best performance</td></tr>
-              <tr><td>Multi-language</td><td>Cohere multilingual</td><td>Better language coverage</td></tr>
-              <tr><td>Large documents</td><td>gte-Qwen2-7B</td><td>32K context</td></tr>
-              <tr><td>Zero budget</td><td>nomic-embed-text</td><td>Free, open source</td></tr>
-            </tbody>
-          </table>
+One-time cost - minimal impact</code></pre>
+
+          <h2>API Usage for Embeddings</h2>
+          <pre><code>import openai
+
+client = openai.OpenAI()
+response = client.embeddings.create(
+    model="text-embedding-3-small",
+    input=["Your text here"]
+)
+vector = response.data[0].embedding</code></pre>
 
           <h2>Related Tools</h2>
-          <p><a href="token-calculator-api-integration.html">API Integration Guide</a> · <a href="llm-cost-calculator.html">Cost Calculator</a></p>
+          <p><a href="vector-databases-comparison.html">Vector Databases</a> · <a href="llm-cost-calculator.html">Cost Calculator</a></p>
 
           <h2>Related Articles</h2>
           <ul>
-            <li><a href="ai-rag-systems-guide.html">RAG Systems</a></li>
-            <li><a href="ai-token-billing-explained.html">Billing Guide</a></li>
-            <li><a href="reduce-ai-api-costs.html">Reduce Costs</a></li>
+            <li><a href="ai-rag-systems-guide.html">RAG Systems Guide</a></li>
+            <li><a href="ai-infrastructure-costs.html">Infrastructure Costs</a></li>
+            <li><a href="openai-api-pricing-2026.html">OpenAI Pricing</a></li>
           </ul>
         </div>
 
@@ -127,8 +118,8 @@
             <h3>Embedding Resources</h3>
             <ul>
               <li><a href="ai-rag-systems-guide.html">RAG Guide</a></li>
-              <li><a href="token-calculator-api-integration.html">API Guide</a></li>
-              <li><a href="llm-cost-calculator.html">Cost Calculator</a></li>
+              <li><a href="vector-databases-comparison.html">Vector DBs</a></li>
+              <li><a href="openai-api-pricing-2026.html">Pricing Guide</a></li>
             </ul>
           </div>
         </aside>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI API Error Handling: Best Practices for Production</title>
-  <meta name="description" content="Learn how to handle AI API errors in production. Retry strategies, fallback models, and graceful degradation for LLM applications.">
-  <meta name="keywords" content="AI API errors, API error handling, LLM errors, retry strategy, API fallback, production AI">
+  <title>AI API Error Handling: Complete Guide for Developers</title>
+  <meta name="description" content="Handle AI API errors like a pro. Rate limits, timeouts, invalid inputs - complete error handling guide with code examples.">
+  <meta name="keywords" content="API error handling, AI errors, rate limit errors, token limit errors, OpenAI errors, API troubleshooting">
   <meta name="author" content="TokenCalc">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tokenestimate.com/blog/ai-api-error-handling.html">
@@ -16,8 +16,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "AI API Error Handling: Best Practices for Production",
-    "description": "Handle AI API errors effectively in production applications.",
+    "headline": "AI API Error Handling: Complete Guide for Developers",
+    "description": "Master error handling for AI APIs.",
     "author": { "@type": "Organization", "name": "TokenCalc" },
     "datePublished": "2026-08-16",
     "dateModified": "2026-08-16"
@@ -47,10 +47,10 @@
     <section class="blog-hero">
       <div class="container">
         <span class="breadcrumb">Blog / Technical</span>
-        <h1>AI API Error Handling: Best Practices</h1>
-        <p class="lead">Build resilient AI applications with proper error handling, retries, and fallback strategies.</p>
+        <h1>AI API Error Handling</h1>
+        <p class="lead">Handle AI API errors gracefully with this complete guide for developers.</p>
         <div class="meta">
-          <span>Aug 16, 2026</span> · <span>10 min read</span>
+          <span>Aug 16, 2026</span> · <span>9 min read</span>
         </div>
       </div>
     </section>
@@ -61,79 +61,58 @@
           <h2>Common AI API Errors</h2>
           <table>
             <thead>
-              <tr><th>Error Code</th><th>Meaning</th><th>Action</th></tr>
+              <tr><th>Error</th><th>Code</th><th>Cause</th><th>Solution</th></tr>
             </thead>
             <tbody>
-              <tr><td>400</td><td>Bad Request</td><td>Check input format</td></tr>
-              <tr><td>401</td><td>Unauthorized</td><td>Verify API key</td></tr>
-              <tr><td>403</td><td>Forbidden</td><td>Check permissions</td></tr>
-              <tr><td>404</td><td>Not Found</td><td>Check model name</td></tr>
-              <tr><td>429</td><td>Rate Limit</td><td>Wait and retry</td></tr>
-              <tr><td>4xx</td><td>Client Error</td><td>Fix request</td></tr>
-              <tr><td>5xx</td><td>Server Error</td><td>Retry with backoff</td></tr>
+              <tr><td>Rate Limit</td><td>429</td><td>Too many requests</td><td>Implement exponential backoff</td></tr>
+              <tr><td>Auth Error</td><td>401</td><td>Invalid API key</td><td>Check credentials</td></tr>
+              <tr><td>NotFound</td><td>404</td><td>Invalid model</td><td>Verify model name</td></tr>
+              <tr><td>Payload Too Large</td><td>413</td><td>Context window exceeded</td><td>Reduce input size</td></tr>
+              <tr><td>Invalid JSON</td><td>400</td><td>Malformed request</td><td>Validate input format</td></tr>
+              <tr><td>Timeout</td><td>408</td><td>Request took too long</td><td>Increase timeout or simplify</td></tr>
             </tbody>
           </table>
 
-          <h2>Error Handling Strategies</h2>
-          <ol>
-            <li><strong>Exponential Backoff:</strong> Wait longer between retries</li>
-            <li><strong>Circuit Breaker:</strong> Stop calling failing services</li>
-            <li><strong>Fallback Models:</strong> Switch to alternative APIs</li>
-            <li><strong>Graceful Degradation:</strong> Provide cached/stale responses</li>
-            <li><strong>Retry Limits:</strong> Don't retry indefinitely</li>
-          </ol>
+          <h2>Error Handling Patterns</h2>
+          <pre><code>import time
 
-          <h2>Retry Logic Example</h2>
-          <pre><code>const MAX_RETRIES = 3;
-const BASE_DELAY = 1000;
+def call_with_retry(api_call, max_retries=3):
+    for attempt in range(max_retries):
+        try:
+            return api_call()
+        except RateLimitError as e:
+            wait_time = 2 ** attempt  # Exponential backoff
+            time.sleep(wait_time)
+        except TimeoutError:
+            if attempt == max_retries - 1:
+                raise
+    return None</code></pre>
 
-async function callAPIWithRetry(prompt, retries = 0) {
-  try {
-    return await callAPI(prompt);
-  } catch (error) {
-    if (retries >= MAX_RETRIES) throw error;
+          <h2>Handling Context Window Errors</h2>
+          <pre><code>if error.code == "context_length_exceeded":
+    # Option 1: Truncate input
+    truncated_input = input[:max_tokens]
     
-    const delay = BASE_DELAY * Math.pow(2, retries);
-    await sleep(delay);
+    # Option 2: Summarize and retry
+    summary = await summarize(input)
+    response = await call_api(summary)
     
-    return callAPIWithRetry(prompt, retries + 1);
-  }
-}</code></pre>
+    # Option 3: Switch to larger context model
+    response = await call_api_with_model(input, "gpt-4o")</code></pre>
 
-          <h2>Fallback Strategy</h2>
-          <pre><code>async function getAIResponse(prompt) {
-  // Try primary model
-  try {
-    return await openai.complete(prompt);
-  } catch (error) {
-    console.log('Primary failed, trying fallback');
-  }
-  
-  // Try fallback model
-  try {
-    return await anthropic.complete(prompt);
-  } catch (error) {
-    console.log('Fallback failed, using default response');
-  }
-  
-  // Return cached/default response
-  return getDefaultResponse(prompt);
-}</code></pre>
-
-          <h2>Monitoring Best Practices</h2>
+          <h2>Monitoring Errors</h2>
           <ul>
+            <li>Log all errors with timestamps</li>
             <li>Track error rates by model and endpoint</li>
-            <li>Set up alerts for spike in errors</li>
-            <li>Log successful vs failed requests</li>
-            <li>Monitor response times</li>
-            <li>Track token usage per error type</li>
+            <li>Set up alerts for sudden spikes</li>
+            <li>Monitor retry success rates</li>
           </ul>
 
           <h2>Related Articles</h2>
           <ul>
-            <li><a href="api-rate-limits-explained.html">API Rate Limits</a></li>
-            <li><a href="reduce-ai-api-costs.html">Reduce API Costs</a></li>
-            <li><a href="api-cost-monitor.html">Cost Monitor</a></li>
+            <li><a href="api-rate-limits-quotas-2026.html">Rate Limits</a></li>
+            <li><a href="openai-api-complete-guide.html">OpenAI Guide</a></li>
+            <li><a href="multi-model-ai-architecture.html">Multi-Provider</a></li>
           </ul>
         </div>
 
@@ -141,9 +120,9 @@ async function callAPIWithRetry(prompt, retries = 0) {
           <div class="sidebar-card">
             <h3>Technical Guides</h3>
             <ul>
-              <li><a href="api-rate-limits-explained.html">Rate Limits</a></li>
-              <li><a href="api-cost-monitor.html">Cost Monitor</a></li>
-              <li><a href="token-budget-calculator.html">Budget Calculator</a></li>
+              <li><a href="api-rate-limits-quotas-2026.html">Rate Limits</a></li>
+              <li><a href="openai-api-complete-guide.html">API Guide</a></li>
+              <li><a href="multi-model-ai-architecture.html">Multi-Provider</a></li>
             </ul>
           </div>
         </aside>
