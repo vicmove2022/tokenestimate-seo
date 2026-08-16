@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Count Tokens for AI Models — Complete Step-by-Step Guide (2026)</title>
+  <meta name="description" content="Learn how to count tokens for any AI model. Step-by-step guide to tokenization, tiktoken usage, and accurate cost estimation for GPT-4o, Claude, Gemini and more.">
+  <meta name="keywords" content="how to count tokens, tokenize text, token counting guide, AI tokenization, tiktoken tutorial, token estimator">
+  <meta name="author" content="TokenCalc">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tokenestimate.com/blog/how-to-count-tokens.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Count Tokens for AI Models — Complete Step-by-Step Guide (2026)",
+    "description": "Learn how to count tokens accurately for any AI model with this complete guide covering tiktoken, tokenization methods, and cost estimation.",
+    "author": { "@type": "Organization", "name": "TokenCalc" },
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4f8cff" stroke-width="2" aria-hidden="true">
+          <path d="M12 2 4 6v6c0 5 3.4 9.1 8 10 4.6-.9 8-5 8-10V6l-8-4Z"/>
+          <path d="m9 12 2 2 4-4" stroke="#22d3ee" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Token<span class="grad">Calc</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../#tool">Calculator</a>
+        <a href="../#models">Models</a>
+        <a href="how-many-tokens-per-word.html">Tokens per Word</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <span class="breadcrumb">Blog / Token Guide</span>
+        <h1>How to Count Tokens for AI Models</h1>
+        <p class="lead">A complete guide to understanding and counting tokens for GPT-4o, Claude, Gemini, and other AI models in 2026.</p>
+        <div class="meta">
+          <span>Aug 16, 2026</span> · <span>12 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="blog-body">
+          <h2>What Are Tokens?</h2>
+          <p>Tokens are the basic units of text that AI models process. One token can be as short as a single character or as long as a whole word. Understanding tokens is crucial for estimating API costs and optimizing your prompts.</p>
+          
+          <h2>How Tokenization Works</h2>
+          <p>Different AI providers use different tokenizers:</p>
+          <ul>
+            <li><strong>OpenAI:</strong> Uses tiktoken with byte-pair encoding (BPE)</li>
+            <li><strong>Anthropic:</strong> Uses CLAUDE_TOKENIZER (proprietary)</li>
+            <li><strong>Google:</strong> Uses tokenizer based on sentencepiece</li>
+          </ul>
+
+          <h2>Counting Tokens for GPT-4o</h2>
+          <p>To count tokens for GPT-4o and other OpenAI models:</p>
+          <pre><code>import tiktoken
+
+enc = tiktoken.get_encoding("o200k_base")
+tokens = enc.encode("Your text here")
+print(f"Tokens: {len(tokens)}")</code></pre>
+
+          <h2>Estimating Tokens for Other Models</h2>
+          <p>For models without browser-accessible tokenizers, use this rule of thumb:</p>
+          <ul>
+            <li>English text: ~4 characters per token</li>
+            <li>Code: ~3 characters per token</li>
+            <li>Chinese/Japanese: ~1-2 characters per token</li>
+          </ul>
+
+          <h2>Common Mistakes to Avoid</h2>
+          <ol>
+            <li>Using character count instead of token count</li>
+            <li>Not accounting for system prompts</li>
+            <li>Ignoring output token costs</li>
+          </ol>
+
+          <h2>Use Our Free Token Calculator</h2>
+          <p>Don't calculate manually — use our free tool:</p>
+          <p><a href="../gpt-5-token-calculator.html">GPT-5 Token Calculator</a> · <a href="../claude-token-counter.html">Claude Token Counter</a> · <a href="../gemini-token-counter.html">Gemini Token Counter</a></p>
+
+          <h2>Related Articles</h2>
+          <ul>
+            <li><a href="how-many-tokens-per-word.html">How Many Tokens Per Word?</a></li>
+            <li><a href="how-many-tokens-in-1000-words.html">How Many Tokens in 1000 Words?</a></li>
+            <li><a href="tiktoken-guide.html">Complete Tiktoken Guide</a></li>
+            <li><a href="ai-api-pricing-2026.html">AI API Pricing in 2026</a></li>
+          </ul>
+        </div>
+
+        <aside class="blog-sidebar">
+          <div class="sidebar-card">
+            <h3>Quick Token Calculator</h3>
+            <p>Count tokens instantly for any model</p>
+            <a href="../#tool" class="btn btn-primary">Try Calculator</a>
+          </div>
+          <div class="sidebar-card">
+            <h3>Popular Articles</h3>
+            <ul>
+              <li><a href="ai-api-pricing-2026.html">AI API Pricing 2026</a></li>
+              <li><a href="reduce-ai-api-costs.html">Reduce AI Costs</a></li>
+              <li><a href="gpt-vs-claude-vs-gemini.html">GPT vs Claude vs Gemini</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <strong>TokenCalc</strong> · Free AI Token Calculator
+      </div>
+      <div>
+        <a href="../privacy.html">Privacy Policy</a> · © 2026 TokenCalc
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
