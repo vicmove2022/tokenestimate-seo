@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPT-5 Token Counting Guide: Exact tiktoken Usage for GPT-5, GPT-5 mini & GPT-5.5 (2026)</title>
+  <meta name="description" content="Complete guide to counting tokens for GPT-5, GPT-5 mini and GPT-5.5 using the o200k_base tokenizer. Learn exact token counts, pricing per 1M tokens, context window limits, and cost-saving tips.">
+  <meta name="keywords" content="GPT-5 token counter, GPT-5 tokens, count GPT-5 tokens, o200k tokenizer, GPT-5 pricing per token, GPT-5 mini tokens, GPT-5.5 tokens, OpenAI token calculator, tiktoken guide">
+  <link rel="canonical" href="https://tokenestimate.com/blog/gpt-5-token-counting-guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="GPT-5 Token Counting Guide: Exact tiktoken Usage for GPT-5 & GPT-5 mini">
+  <meta property="og:description" content="How many tokens is your prompt in GPT-5? Learn exact tiktoken counting, per-1M pricing, context window limits, and 5 ways to cut costs.">
+  <meta property="og:url" content="https://tokenestimate.com/blog/gpt-5-token-counting-guide.html">
+  <meta property="og:image" content="https://tokenestimate.com/og-cover.png">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "GPT-5 Token Counting Guide: Exact tiktoken Usage for GPT-5, GPT-5 mini & GPT-5.5",
+    "description": "How to count tokens exactly for GPT-5, GPT-5 mini and GPT-5.5 using the official o200k_base tokenizer. Covers pricing, context windows, and cost optimization.",
+    "datePublished": "2026-08-15",
+    "dateModified": "2026-08-15",
+    "author": { "@type": "Organization", "name": "TokenCalc" },
+    "publisher": { "@type": "Organization", "name": "TokenCalc" },
+    "mainEntityOfPage": "https://tokenestimate.com/blog/gpt-5-token-counting-guide.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many tokens is a word in GPT-5?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In GPT-5, 1 token is approximately 0.75 words on average, or roughly 4 characters per token. However, the exact ratio depends on the vocabulary — common English words tend to be single tokens, while rare words and code are split into multiple tokens." }
+      },
+      {
+        "@type": "Question",
+        "name": "What tokenizer does GPT-5 use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "GPT-5 uses the o200k_base tokenizer, which is the same Byte-Pair Encoding (BPE) tokenizer used by GPT-4o. This is different from the older cl100k_base tokenizer used by GPT-4 and GPT-3.5." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does GPT-5 cost per 1M tokens?",
+        "acceptedAnswer": { "@type": "Answer", "text": "As of 2026, GPT-5 costs $1.25 per 1M input tokens and $10.00 per 1M output tokens, with a 400K context window. GPT-5 mini is cheaper at $0.25 input / $2.00 output per 1M tokens." }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is browser-based token counting for GPT-5?",
+        "acceptedAnswer": { "@type": "Answer", "text": "When using the official o200k_base tiktoken implementation in your browser, the token count for GPT-5 is exact and matches the count you will see on your OpenAI invoice. This is because the same tokenizer runs client-side and server-side." }
+      }
+    ]
+  }
+  </script>
+  <style>
+    .article { max-width: 780px; margin: 28px auto 60px; padding: 0 26px; }
+    .article h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 12px; }
+    .article .meta { color: var(--text-faint); font-size: .85rem; margin-bottom: 26px; }
+    .article h2 { font-size: 1.35rem; margin: 34px 0 12px; }
+    .article h3 { font-size: 1.08rem; margin: 24px 0 8px; }
+    .article p, .article li { color: var(--text-dim); font-size: .98rem; }
+    .article ul, .article ol { margin: 10px 0 14px 22px; }
+    .article li { margin-bottom: 6px; }
+    .article table { width: 100%; border-collapse: collapse; margin: 16px 0 22px; font-size: .9rem; }
+    .article th { text-align: left; font-size: .74rem; text-transform: uppercase; letter-spacing: .07em; color: var(--text-faint); padding: 10px 12px; background: var(--bg-soft); border-bottom: 1px solid var(--border-soft); }
+    .article td { padding: 10px 12px; border-bottom: 1px solid var(--border-soft); color: var(--text-dim); }
+    .article td.best { color: var(--green); font-weight: 600; }
+    .article .tag { font-size: .68rem; }
+    code { font-family: var(--mono); background: var(--bg-input); border: 1px solid var(--border); border-radius: 6px; padding: 1px 6px; font-size: .88em; }
+    .cta { background: var(--bg-soft); border: 1px solid var(--border-soft); border-radius: var(--radius-sm); padding: 18px 22px; margin: 26px 0; }
+    .cta a { font-weight: 600; }
+    .breadcrumb { font-size: .82rem; color: var(--text-faint); margin-bottom: 18px; }
+    .faq details { margin-bottom: 14px; border: 1px solid var(--border-soft); border-radius: var(--radius-sm); padding: 14px 18px; }
+    .faq summary { cursor: pointer; font-weight: 600; color: var(--text); }
+    .faq p { margin-top: 10px; }
+  </style>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../" aria-label="TokenCalc home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4f8cff" stroke-width="2" aria-hidden="true">
+          <path d="M12 2 4 6v6c0 5 3.4 9.1 8 10 4.6-.9 8-5 8-10V6l-8-4Z"/>
+          <path d="m9 12 2 2 4-4" stroke="#22d3ee" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Token<em>Calc</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../#tool">Calculator</a>
+        <a href="../#models">Models</a>
+        <a href="../#faq">FAQ</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="article">
+        <div class="breadcrumb"><a href="../">Home</a> / Blog / GPT-5 Token Counting Guide</div>
+        <h1>GPT-5 Token Counting Guide: Exact tiktoken Usage for GPT-5, GPT-5 mini & GPT-5.5</h1>
+        <p class="meta">TokenCalc — updated Aug 2026 · 8 min read</p>
+
+        <p>GPT-5 is here, and with it comes a new tokenizer and a new pricing model. Whether you're building an app with GPT-5, GPT-5 mini, or GPT-5.5, knowing <strong>how many tokens your prompt actually uses</strong> is the difference between a manageable API bill and a surprise. This guide shows you exactly how token counting works for the GPT-5 family, with real examples and a free calculator you can use right now.</p>
+
+        <h2>What tokenizer does GPT-5 use?</h2>
+        <p>GPT-5, GPT-5 mini, GPT-5.5 and GPT-4o all use the <code>o200k_base</code> tokenizer — the same Byte-Pair Encoding (BPE) implementation that OpenAI runs on their servers. This is different from the older <code>cl100k_base</code> tokenizer used by GPT-4 and GPT-3.5, which is why your token count can change when you switch between them.</p>
+        <p>The <code>o200k_base</code> vocabulary has roughly 200,000 subword units, which means common English words are more likely to be single tokens than with older tokenizers. In practice, this gives you a slightly lower token count for the same text compared to GPT-4.</p>
+
+        <h2>GPT-5 token counting examples</h2>
+        <p>Here are a few real examples showing how text tokenizes under <code>o200k_base</code>:</p>
+        <table>
+          <thead>
+            <tr><th>Input Text</th><th>Characters</th><th>Tokens (o200k)</th><th>Tokens (cl100k)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>"Hello, world!"</td><td>13</td><td>4</td><td>4</td></tr>
+            <tr><td>"What is the capital of France?"</td><td>32</td><td>7</td><td>8</td></tr>
+            <tr><td>"Explain quantum computing in simple terms for a 10-year-old."</td><td>66</td><td>13</td><td>15</td></tr>
+            <tr><td>function solve(arr) { return arr.sort(); }</td><td>40</td><td>9</td><td>11</td></tr>
+            <tr><td>"The quick brown fox jumps over the lazy dog."</td><td>46</td><td>9</td><td>10</td></tr>
+          </tbody>
+        </table>
+        <p>As you can see, code and technical text often produces fewer tokens in <code>o200k_base</code> because the tokenizer has more subword coverage for programming languages.</p>
+
+        <h2>GPT-5 pricing per 1M tokens (2026)</h2>
+        <table>
+          <thead>
+            <tr><th>Model</th><th>Context</th><th>Input / 1M</th><th>Output / 1M</th><th>Best for</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>GPT-5</strong></td><td>400K</td><td>$1.25</td><td>$10.00</td><td class="best">General purpose</td></tr>
+            <tr><td><strong>GPT-5 mini</strong></td><td>400K</td><td>$0.25</td><td>$2.00</td><td class="best">High-volume apps</td></tr>
+            <tr><td><strong>GPT-5.5</strong></td><td>400K</td><td>$5.00</td><td>$30.00</td><td>Premium reasoning</td></tr>
+          </tbody>
+        </table>
+        <p>GPT-5 mini is by far the most cost-effective option for production workloads — input is 5× cheaper than GPT-5, and output is 5× cheaper too. Reserve GPT-5.5 for complex reasoning tasks where the quality premium matters.</p>
+
+        <h2>How to count tokens exactly for GPT-5</h2>
+        <p>There are three ways to get an accurate token count for your GPT-5 prompts:</p>
+        <ol>
+          <li><strong>Use our free online calculator</strong> — paste your text and select a GPT-5 model. It runs the exact <code>o200k_base</code> tokenizer in your browser. <a href="../gpt-5-token-calculator.html">Try the GPT-5 token calculator →</a></li>
+          <li><strong>Use Python with tiktoken</strong> — install <code>tiktoken</code> and run <code>encoding = tiktoken.get_encoding("o200k_base")</code> then <code>len(encoding.encode(your_text))</code>.</li>
+          <li><strong>Ask the API directly</strong> — OpenAI returns the token count in the response headers, but this costs you money and doesn't help with planning.</li>
+        </ol>
+        <div class="cta">
+          <p><strong>💡 Pro tip:</strong> Always count tokens before sending a request. The difference between 50K and 100K tokens can be the difference between $0.06 and $0.13 per call with GPT-5 mini — and that compounds fast at scale.</p>
+          <p><a href="../gpt-5-token-calculator.html">→ Count tokens for GPT-5 free</a></p>
+        </div>
+
+        <h2>Why token counts differ between GPT-5 and GPT-4</h2>
+        <p>Even though GPT-5 and GPT-4 are both OpenAI models, they use <strong>different tokenizers</strong>. GPT-4 uses <code>cl100k_base</code> (roughly 100K vocabulary), while GPT-5 uses <code>o200k_base</code> (roughly 200K). This means the same text can tokenize differently:</p>
+        <ul>
+          <li>Common English words like "the", "and", "is" tokenize the same way in both.</li>
+          <li>Rare words and technical terms may be single tokens in <code>o200k_base</code> but split in <code>cl100k_base</code>.</li>
+          <li>Code and symbols benefit most from the larger vocabulary.</li>
+        </ul>
+        <p>Always use the correct tokenizer when estimating costs. Our calculator handles this automatically — it switches to <code>o200k_base</code> for GPT-5 models and <code>cl100k_base</code> for GPT-4.</p>
+
+        <h2>5 ways to cut your GPT-5 API costs</h2>
+        <ol>
+          <li><strong>Use GPT-5 mini for routine tasks</strong> — it's 5× cheaper and sufficient for most classification, summarization, and extraction work.</li>
+          <li><strong>Cache your system prompt</strong> — OpenAI charges separately for cached vs. uncached input. If your system prompt stays the same across requests, enable prompt caching to reduce input costs by up to 90%.</li>
+          <li><strong>Trim conversation history</strong> — every turn re-sends the full history. Periodically summarize old messages to keep token counts down.</li>
+          <li><strong>Use o3 or o1 for complex reasoning, not GPT-5</strong> — OpenAI's reasoning models are cheaper per token than GPT-5 and produce better results on hard problems.</li>
+          <li><strong>Batch your requests</strong> — if you don't need real-time responses, use the Batch API for 50% off on both input and output.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>How many tokens is a word in GPT-5?</summary>
+            <p>On average, 1 token ≈ 0.75 words in GPT-5, or roughly 4 characters per token. However, this varies by text type — code tokenizes more efficiently, while repeated punctuation can inflate token counts.</p>
+          </details>
+          <details>
+            <summary>What tokenizer does GPT-5 use?</summary>
+            <p>GPT-5 uses <code>o200k_base</code>, the same tokenizer as GPT-4o. This is a 200K-word vocabulary Byte-Pair Encoding tokenizer, which is larger than the <code>cl100k_base</code> tokenizer used by GPT-4 and GPT-3.5.</p>
+          </details>
+          <details>
+            <summary>How much does GPT-5 cost per 1M tokens?</summary>
+            <p>GPT-5 costs $1.25 per 1M input tokens and $10.00 per 1M output tokens, with a 400K context window. GPT-5 mini is significantly cheaper at $0.25 / $2.00 per 1M tokens.</p>
+          </details>
+          <details>
+            <summary>How do I count GPT-5 tokens locally?</summary>
+            <p>You can use the open-source <code>tiktoken</code> library in Python with the <code>o200k_base</code> encoding, or use our free browser-based <a href="../gpt-5-token-calculator.html">GPT-5 token calculator</a> which runs the same tokenizer client-side — no upload needed.</p>
+          </details>
+          <details>
+            <summary>Is my text safe when using an online token counter?</summary>
+            <p>Yes — our calculator runs entirely in your browser using JavaScript. Your text never leaves your device, no analytics are collected from the content you paste, and the page works offline after the tokenizer loads.</p>
+          </details>
+        </div>
+
+        <div class="cta" style="margin-top:32px;">
+          <p><strong>Ready to count your GPT-5 tokens?</strong></p>
+          <p><a href="../gpt-5-token-calculator.html">→ Open the GPT-5 token calculator</a> — paste your text and see exact token counts and API cost estimates instantly.</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <strong>TokenCalc — AI Token Calculator</strong><br>
+        Free, private token counting for GPT-5, Claude, Gemini, DeepSeek and 90+ models.
+      </div>
+      <div>
+        <a href="../privacy.html">Privacy Policy</a> · © 2026 TokenCalc
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+</body>
+</html>
