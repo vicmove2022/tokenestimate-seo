@@ -39,6 +39,7 @@
   <url><loc>https://tokenestimate.com/blog/chatgpt-token-counter.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/claude-token-counter.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/claude-token-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/content-cluster-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/context-window-comparison.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/context-window-explained.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/deepseek-token-counter.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -48,6 +49,7 @@
   <url><loc>https://tokenestimate.com/blog/free-token-counter.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/gemini-token-counter.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/gemini-token-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/geo-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/glm-token-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/gpt-4o-vs-gpt-4-turbo-comparison.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/gpt-4o-vs-gpt-4-turbo.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -62,11 +64,14 @@
   <url><loc>https://tokenestimate.com/blog/how-many-tokens-per-word.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/how-much-does-it-cost-to-build-an-ai-app.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/how-to-count-tokens.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/internal-linking-strategy.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/keyword-research-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/kimi-token-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/llama-token-counter.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/llama-token-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/llm-cost-calculator.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/llm-token-estimator.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/llms-txt-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/local-llm-deployment.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/mistral-token-counter.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/mistral-token-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -80,6 +85,7 @@
   <url><loc>https://tokenestimate.com/blog/openai-tokenizer-explained.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/openai-tokenizer-online.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/openai-vs-anthropic-vs-google-comparison.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/programmatic-seo-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/prompt-engineering-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/prompt-engineering-token-optimization.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/prompt-injection-security.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -89,10 +95,16 @@
   <url><loc>https://tokenestimate.com/blog/reduce-ai-api-costs-detailed.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/reduce-ai-api-costs.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/reduce-costs-detailed-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/schema-markup-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/semantic-seo-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/seo-audit-checklist.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/seo-content-writing-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/tiktok-seo-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/tiktoken-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/tiktoken-python-tutorial.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/token-budget-calculator.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/token-calculator-api-integration.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/token-calculator-api.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tokenestimate.com/blog/vector-databases-comparison.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenestimate.com/blog/youtube-seo-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
