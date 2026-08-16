@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tiktoken Python Tutorial — Token Counting in Python (2026)</title>
-  <meta name="description" content="Complete Python tutorial for tiktoken. Learn how to install, use, and integrate token counting into your AI applications.">
-  <meta name="keywords" content="tiktoken python, tiktoken tutorial, python token counting, tiktoken install, OpenAI tokenizer python">
+  <title>Tiktoken Python Tutorial: Count Tokens Like a Pro</title>
+  <meta name="description" content="Learn to use Tiktoken in Python. Complete tutorial for counting tokens with OpenAI models, handling different encodings, and best practices.">
+  <meta name="keywords" content="tiktoken python, count tokens python, OpenAI tokenizer, tiktoken tutorial, python token counting">
   <meta name="author" content="TokenCalc">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tokenestimate.com/blog/tiktoken-python-tutorial.html">
@@ -16,8 +16,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Tiktoken Python Tutorial — Token Counting in Python (2026)",
-    "description": "Complete Python tutorial for tiktoken token counting.",
+    "headline": "Tiktoken Python Tutorial: Count Tokens Programmatically",
+    "description": "Complete Tiktoken tutorial for Python developers.",
     "author": { "@type": "Organization", "name": "TokenCalc" },
     "datePublished": "2026-08-16",
     "dateModified": "2026-08-16"
@@ -37,7 +37,7 @@
       </a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="../#tool">Calculator</a>
-        <a href="tiktoken-guide.html">Tiktoken Guide</a>
+        <a href="ai-api-pricing-2026.html">Pricing Guide</a>
         <a href="../blog/">Blog</a>
       </nav>
     </div>
@@ -46,11 +46,11 @@
   <main>
     <section class="blog-hero">
       <div class="container">
-        <span class="breadcrumb">Blog / Python Tutorial</span>
+        <span class="breadcrumb">Blog / Tutorial</span>
         <h1>Tiktoken Python Tutorial</h1>
-        <p class="lead">Learn how to use tiktoken in Python to count tokens for OpenAI models. Complete with code examples.</p>
+        <p class="lead">Learn to count tokens programmatically using Tiktoken in Python.</p>
         <div class="meta">
-          <span>Aug 16, 2026</span> · <span>10 min read</span>
+          <span>Aug 16, 2026</span> · <span>11 min read</span>
         </div>
       </div>
     </section>
@@ -64,59 +64,93 @@
           <h2>Basic Usage</h2>
           <pre><code>import tiktoken
 
-# Get encoder for specific model
-enc = tiktoken.encoding_for_model("gpt-4o")
+# Get encoding for a specific model
+encoding = tiktoken.encoding_for_model("gpt-4o")
 
-# Encode text to tokens
-tokens = enc.encode("Hello, world!")
+# Count tokens
+text = "Hello, world!"
+tokens = encoding.encode(text)
 print(f"Tokens: {len(tokens)}")
-print(f"Tokens: {tokens}")
+print(f"Tokens: {tokens}")</code></pre>
 
-# Decode tokens back to text
-text = enc.decode(tokens)
-print(f"Text: {text}")</code></pre>
+          <h2>Common Encodings</h2>
+          <table>
+            <thead>
+              <tr><th>Encoding</th><th>Models</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>cl100k_base</td><td>GPT-4, GPT-3.5, text-embedding-ada-002</td></tr>
+              <tr><td>p50k_base</td><td>Codex, text-davinci-002, text-davinci-003</td></tr>
+              <tr><td>r50k_base</td><td>GPT-3, text-davinci-001</td></tr>
+              <tr><td>o200k_base</td><td>GPT-4o, o1, o3</td></tr>
+            </tbody>
+          </table>
 
-          <h2>Cost Estimation</h2>
-          <pre><code>def estimate_cost(text, model):
-    enc = tiktoken.encoding_for_model(model)
-    tokens = len(enc.encode(text))
+          <h2>Counting Tokens in Messages</h2>
+          <pre><code>def count_message_tokens(messages, model="gpt-4o"):
+    encoding = tiktoken.encoding_for_model(model)
     
-    # Pricing per 1M tokens
-    prices = {
-        "gpt-4o": {"input": 2.50, "output": 10.00},
+    num_tokens = 0
+    for message in messages:
+        num_tokens += 4  # Every message follows the format
+    
+    for msg in messages:
+        num_tokens += len(encoding.encode(msg["content"]))
+    
+    return num_tokens</code></pre>
+
+          <h2>Cost Estimation Function</h2>
+          <pre><code>def estimate_cost(tokens, model="gpt-4o-mini"):
+    pricing = {
         "gpt-4o-mini": {"input": 0.15, "output": 0.60},
+        "gpt-4o": {"input": 2.50, "output": 10.00},
+        "claude-3-haiku": {"input": 0.80, "output": 4.00}
     }
     
-    cost = tokens * prices[model]["input"] / 1_000_000
-    return cost
+    prices = pricing.get(model, {"input": 0.15, "output": 0.60})
+    input_cost = tokens * 0.7 * prices["input"] / 1_000_000
+    output_cost = tokens * 0.3 * prices["output"] / 1_000_000
+    
+    return input_cost + output_cost</code></pre>
 
-print(f"Cost: ${estimate_cost('Hello world', 'gpt-4o'):.6f}")</code></pre>
+          <h2>Handling Different Languages</h2>
+          <pre><code># English text
+encoding = tiktoken.encoding_for_model("gpt-4")
+tokens_en = encoding.encode("Hello world")
 
-          <h2>BATCH Processing</h2>
-          <pre><code>texts = ["First text", "Second text", "Third text"]
-results = [len(enc.encode(t)) for t in texts]
-print(results)  # [5, 4, 4]</code></pre>
+# Chinese text (same encoding works)
+tokens_cn = encoding.encode("你好世界")
 
-          <h2>Common Errors</h2>
+# Note: Chinese characters may be encoded differently
+# Consider using model-specific encoders for best results</code></pre>
+
+          <h2>Performance Tips</h2>
           <ul>
-            <li>Model not found: Check model name spelling</li>
-            <li>Encoding errors: Ensure valid UTF-8 text</li>
-            <li>Memory issues: Process large texts in chunks</li>
+            <li>Cache encoders - creating encoding is expensive</li>
+            <li>Use batch processing for large documents</li>
+            <li>Consider approximate counting for very long texts</li>
+            <li>Use decode() to verify token integrity</li>
           </ul>
 
-          <h2>Related Resources</h2>
+          <h2>Related Tools</h2>
+          <p><a href="../gpt-5-token-calculator.html">Token Calculator</a> · <a href="token-calculator-api-integration.html">API Integration</a></p>
+
+          <h2>Related Articles</h2>
           <ul>
-            <li><a href="tiktoken-guide.html">Complete Tiktoken Guide</a></li>
-            <li><a href="how-to-count-tokens.html">How to Count Tokens</a></li>
-            <li><a href="token-calculator-api.html">API Integration Guide</a></li>
+            <li><a href="tiktoken-guide.html">Tiktoken Guide</a></li>
+            <li><a href="openai-tokenizer-explained.html">Tokenizer Explained</a></li>
+            <li><a href="how-to-count-tokens.html">Token Counting Guide</a></li>
           </ul>
         </div>
 
-        <aside class="sidebar">
+        <aside class="blog-sidebar">
           <div class="sidebar-card">
-            <h3>Try It Online</h3>
-            <p>No installation needed</p>
-            <a href="../#tool" class="btn btn-primary">Use Calculator</a>
+            <h3>Developer Resources</h3>
+            <ul>
+              <li><a href="tiktoken-guide.html">Tiktoken Guide</a></li>
+              <li><a href="openai-tokenizer-explained.html">Tokenizer</a></li>
+              <li><a href="token-calculator-api-integration.html">API Integration</a></li>
+            </ul>
           </div>
         </aside>
       </div>
@@ -125,12 +159,10 @@ print(results)  # [5, 4, 4]</code></pre>
 
   <footer class="site-footer">
     <div class="container">
-      <div>
-        <strong>TokenCalc</strong> · Free AI Token Calculator
-      </div>
-      <div>
-        <a href="../privacy.html">Privacy Policy</a> · © 2026 TokenCalc
-      </div>
+      <p>&copy; 2026 TokenCalc. Free AI token counting tools.</p>
+      <nav aria-label="Footer navigation">
+        <a href="../">Home</a> · <a href="../#tool">Calculator</a> · <a href="../blog/">Blog</a> · <a href="../privacy.html">Privacy</a>
+      </nav>
     </div>
   </footer>
 </body>
