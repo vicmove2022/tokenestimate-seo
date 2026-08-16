@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Token Calculator: How to Count Tokens for GPT-4o, Claude, Gemini (2026)</title>
+  <meta name="description" content="Learn how to count tokens accurately for GPT-4o, Claude 4, Gemini, DeepSeek and 90+ AI models. Free token calculator with exact counts and cost estimates.">
+  <meta name="keywords" content="AI token calculator, token counter, GPT-4o tokens, Claude tokens, Gemini tokens, API cost estimator, tiktoken">
+  <meta name="author" content="TokenCalc">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tokenestimate.com/blog/how-to-count-tokens.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Count Tokens for AI Models: Complete Guide 2026",
+    "description": "Learn accurate token counting for GPT-4o, Claude, Gemini and 90+ models.",
+    "author": { "@type": "Organization", "name": "TokenCalc" },
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../" aria-label="AI Token Calculator home">
+        <span>Token<em>Calc</em></span>
+      </a>
+      <nav class="site-nav">
+        <a href="../#tool">Calculator</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <article>
+        <h1>AI Token Calculator: How to Count Tokens for GPT-4o, Claude, Gemini (2026)</h1>
+        <p class="meta">Last updated: August 16, 2026 · 6 min read</p>
+        <div class="article-content">
+          <h2>Why Token Counting Matters</h2>
+          <p>Every AI API call is billed by the token. Getting token counts wrong can cost you hundreds or thousands of dollars. Here's how to count tokens accurately across all major providers.</p>
+          <h2>Method 1: Use a Token Calculator (Recommended)</h2>
+          <p>Our <a href="../">free token calculator</a> gives you exact counts for 90+ models instantly:</p>
+          <ul>
+            <li><strong>Exact counts</strong> for OpenAI models using official tiktoken</li>
+            <li><strong>Accurate estimates</strong> for Claude, Gemini, DeepSeek and others</li>
+            <li><strong>Cost estimates</strong> based on current pricing</li>
+          </ul>
+          <h2>Method 2: Manual Estimation</h2>
+          <p>Quick estimation rules:</p>
+          <table>
+            <thead>
+              <tr><th>Language</th><th>Tokens per Word</th><th>Tokens per Character</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>English</td><td>~1.3</td><td>~0.25</td></tr>
+              <tr><td>Code</td><td>~1.1</td><td>~0.2</td></tr>
+              <tr><td>Chinese</td><td>~1.5</td><td>~1.0</td></tr>
+            </tbody>
+          </table>
+          <h2>Method 3: Programming Libraries</h2>
+          <p>For developers who need programmatic access:</p>
+          <pre><code>// Python with tiktoken
+import tiktoken
+enc = tiktoken.get_encoding("o200k_base")
+tokens = enc.encode("Your text here")
+print(len(tokens))</code></pre>
+          <h2>Common Mistakes to Avoid</h2>
+          <ol>
+            <li><strong>Using character counters</strong> — Tokens ≠ characters</li>
+            <li><strong>Ignoring system prompts</strong> — They add tokens too</li>
+            <li><strong>Forgetting output tokens</strong> — Both input and output are billed</li>
+            <li><strong>Not accounting for reasoning tokens</strong> — o1/o3 have hidden costs</li>
+          </ol>
+          <h2>Cost Optimization Tips</h2>
+          <ul>
+            <li>Use smaller models for simple tasks (GPT-4o mini, Claude Haiku)</li>
+            <li>Cachefrequent responses</li>
+            <li>Optimize prompt length</li>
+            <li>Monitor usage with our calculator</li>
+          </ul>
+          <h2>Try Our Free Calculator</h2>
+          <p>Stop guessing. Get exact token counts and cost estimates for <a href="../gpt-5-token-calculator.html">GPT-5</a>, <a href="../claude-token-counter.html">Claude</a>, <a href="../gemini-token-counter.html">Gemini</a>, and 90+ other models.</p>
+        </div>
+        <div class="faq" style="margin-top:40px;">
+          <h2>FAQ</h2>
+          <details>
+            <summary>Is there a free token calculator?</summary>
+            <p>Yes! Our AI Token Calculator is completely free and runs in your browser.</p>
+          </details>
+          <details>
+            <summary>How accurate is token counting?</summary>
+            <p>For OpenAI models it's exact (official tiktoken). For other models it's an estimate within ~10%.</p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div><strong>TokenCalc</strong> — Free AI Token Calculator</div>
+      <div><a href="../privacy.html">Privacy</a> · © 2026</div>
+    </div>
+  </footer>
+</body>
+</html>
