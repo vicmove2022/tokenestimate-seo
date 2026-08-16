@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Vector Databases: Pinecone vs Weaviate vs Milvus</title>
+  <meta name="description" content="Compare vector databases for AI applications. Pinecone, Weaviate, Milvus, and pgvector - features, costs, and performance.">
+  <meta name="keywords" content="vector database, Pinecone, Weaviate, Milvus, pgvector, vector search, AI database, embeddings storage">
+  <meta name="author" content="TokenCalc">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tokenestimate.com/blog/vector-databases-comparison.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Vector Databases: Pinecone vs Weaviate vs Milvus",
+    "description": "Compare vector databases for AI applications.",
+    "author": { "@type": "Organization", "name": "TokenCalc" },
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4f8cff" stroke-width="2" aria-hidden="true">
+          <path d="M12 2 4 6v6c0 5 3.4 9.1 8 10 4.6-.9 8-5 8-10V6l-8-4Z"/>
+          <path d="m9 12 2 2 4-4" stroke="#22d3ee" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Token<span class="grad">Calc</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../#tool">Calculator</a>
+        <a href="ai-api-pricing-2026.html">Pricing Guide</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <span class="breadcrumb">Blog / Infrastructure</span>
+        <h1>Vector Databases Comparison</h1>
+        <p class="lead">Compare Pinecone, Weaviate, Milvus, and pgvector for your AI application.</p>
+        <div class="meta">
+          <span>Aug 16, 2026</span> · <span>11 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="blog-body">
+          <h2>Why Vector Databases?</h2>
+          <p>Vector databases store and query embeddings for similarity search - essential for RAG, recommendations, and semantic search.</p>
+
+          <h2>Comparison Table</h2>
+          <table>
+            <thead>
+              <tr><th>Feature</th><th>Pinecone</th><th>Weaviate</th><th>Milvus</th><th>pgvector</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Deployment</td><td>Cloud only</td><td>Cloud/On-prem</td><td>Cloud/On-prem</td><td>PostgreSQL extension</td></tr>
+              <tr><td>Managed</td><td>Yes</td><td>Yes</td><td>Yes/Zilliz</td><td>No</td></tr>
+              <tr><td>Start price</td><td>$0 (free tier)</td><td>$0 (free tier)</td><td>$0 (open source)</td><td>$0</td></tr>
+              <tr><td>Scaling</td><td>Automatic</td><td>Manual</td><td>Manual</td><td>Manual</td></tr>
+              <tr><td>GraphQL</td><td>No</td><td>Yes</td><td>No</td><td>Yes (via PostgREST)</td></tr>
+              <tr><td>Filtering</td><td>Good</td><td>Excellent</td><td>Good</td><td>Good</td></tr>
+              <tr><td>Hybrid search</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Partial</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Pricing Comparison</h2>
+          <table>
+            <thead>
+              <tr><th>Provider</th><th>1M vectors</th><th>10M vectors</th><th>100M vectors</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Pinecone</td><td>$50/month</td><td>$400/month</td><td>$4,000/month</td></tr>
+              <tr><td>Weaviate Cloud</td><td>$49/month</td><td>$399/month</td><td>$3,999/month</td></tr>
+              <tr><td>Zilliz Cloud</td><td>$50/month</td><td>$400/month</td><td>$4,000/month</td></tr>
+              <tr><td>Self-hosted</td><td>$100/month*</td><td>$100/month*</td><td>$200/month*</td></tr>
+            </tbody>
+          </table>
+          <p>* Assumes single server with adequate hardware</p>
+
+          <h2>When to Choose Each</h2>
+          <ul>
+            <li><strong>Pinecone:</strong> Quick setup, minimal ops, growing projects</li>
+            <li><strong>Weaviate:</strong> Complex filtering, GraphQL needs, hybrid search</li>
+            <li><strong>Milvus:</strong> Large-scale production, on-premise requirements</li>
+            <li><strong>pgvector:</strong> PostgreSQL users, simple use cases, cost-conscious</li>
+          </ul>
+
+          <h2>Cost Optimization Tips</h2>
+          <ol>
+            <li>Choose appropriate vector dimensions (768 vs 1536)</li>
+            <li>Implement data retention policies</li>
+            <li>Use approximate nearest neighbor for speed</li>
+            <li>Compress vectors when possible</li>
+          </ol>
+
+          <h2>Related Tools</h2>
+          <p><a href="ai-rag-systems-guide.html">RAG Guide</a> · <a href="embedding-models-comparison.html">Embedding Models</a></p>
+
+          <h2>Related Articles</h2>
+          <ul>
+            <li><a href="ai-infrastructure-costs.html">Infrastructure Costs</a></li>
+            <li><a href="enterprise-ai-costs-budgeting.html">Enterprise Costs</a></li>
+            <li><a href="token-budget-calculator.html">Budget Calculator</a></li>
+          </ul>
+        </div>
+
+        <aside class="blog-sidebar">
+          <div class="sidebar-card">
+            <h3>Vector Resources</h3>
+            <ul>
+              <li><a href="ai-rag-systems-guide.html">RAG Guide</a></li>
+              <li><a href="embedding-models-comparison.html">Embeddings</a></li>
+              <li><a href="ai-infrastructure-costs.html">Infra Costs</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 TokenCalc. Free AI token counting tools.</p>
+      <nav aria-label="Footer navigation">
+        <a href="../">Home</a> · <a href="../#tool">Calculator</a> · <a href="../blog/">Blog</a> · <a href="../privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

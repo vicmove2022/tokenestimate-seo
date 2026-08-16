@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agents and LLMs: Building Autonomous Systems</title>
+  <meta name="description" content="Learn how to build AI agents that use LLMs for autonomous decision-making. Tools, memory, planning, and execution patterns.">
+  <meta name="keywords" content="AI agents, autonomous AI, LLM agents, AI tool use, agentic AI, AI automation">
+  <meta name="author" content="TokenCalc">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tokenestimate.com/blog/ai-agents-and-llms.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Agents and LLMs: Building Autonomous Systems",
+    "description": "Build autonomous AI agents with LLMs.",
+    "author": { "@type": "Organization", "name": "TokenCalc" },
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4f8cff" stroke-width="2" aria-hidden="true">
+          <path d="M12 2 4 6v6c0 5 3.4 9.1 8 10 4.6-.9 8-5 8-10V6l-8-4Z"/>
+          <path d="m9 12 2 2 4-4" stroke="#22d3ee" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Token<span class="grad">Calc</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../#tool">Calculator</a>
+        <a href="ai-api-pricing-2026.html">Pricing Guide</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <span class="breadcrumb">Blog / Advanced</span>
+        <h1>AI Agents and LLMs</h1>
+        <p class="lead">Build autonomous AI systems that can reason, plan, and execute complex tasks.</p>
+        <div class="meta">
+          <span>Aug 16, 2026</span> · <span>12 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="blog-body">
+          <h2>What are AI Agents?</h2>
+          <p>AI agents are autonomous systems that can perceive their environment, make decisions, and take actions to achieve goals. They use LLMs as their "brain" for reasoning and planning.</p>
+
+          <h2>Agent Architecture</h2>
+          <pre><code>┌─────────────────────────────────────┐
+│              Agent Loop             │
+│  ┌──────┐    ┌──────┐    ┌──────┐ │
+│  │ Think│ →  │Plan  │ →  │Act   │ │
+│  └──────┘    └──────┘    └──────┘ │
+│       ↑                      │     │
+│       └──────────────────────┘     │
+└─────────────────────────────────────┘</code></pre>
+
+          <h2>Key Components</h2>
+          <ol>
+            <li><strong>Memory:</strong> Store conversations and context</li>
+            <li><strong>Tools:</strong> APIs, functions, databases the agent can use</li>
+            <li><strong>Planning:</strong> Break tasks into steps</li>
+            <li><strong>Reflection:</strong> Evaluate outcomes and adjust</li>
+          </ol>
+
+          <h2>Token Usage in Agents</h2>
+          <p>Agents use significantly more tokens than simple chatbots because they make multiple API calls per task:</p>
+          <ul>
+            <li><strong>Task breakdown:</strong> 500-2,000 tokens</li>
+            <li><strong>Tool calls:</strong> 200-1,000 tokens per tool</li>
+            <li><strong>Tool results:</strong> Variable, can be large</li>
+            <li><strong>Final response:</strong> 200-1,000 tokens</li>
+          </ul>
+          <p><strong>Typical agent session:</strong> 5,000-50,000 tokens</p>
+
+          <h2>Popular Agent Frameworks</h2>
+          <ul>
+            <li><strong>OpenAI Assistants API:</strong> Built-in tools and memory</li>
+            <li><strong>CrewAI:</strong> Multi-agent collaboration</li>
+            <li><strong>LangChain:</strong> Flexible agent orchestration</li>
+            <li><strong>AutoGen:</strong> Microsoft's multi-agent framework</li>
+            <li><strong>CrewAI:</strong> Role-based agents</li>
+          </ul>
+
+          <h2>Use Cases</h2>
+          <table>
+            <thead>
+              <tr><th>Use Case</th><th>Tools Needed</th><th>Est. Tokens</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Research agent</td><td>Search, Read, Summarize</td><td>10K-50K</td></tr>
+              <tr><td>Code agent</td><td>Read, Write, Execute</td><td>5K-30K</td></tr>
+              <tr><td>Data agent</td><td>Query, Analyze, Visualize</td><td>8K-40K</td></tr>
+              <tr><td>Email agent</td><td>Read, Write, Send</td><td>3K-15K</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Cost Estimation</h2>
+          <p>For an agent making 100 tasks/day with average 20K tokens each:</p>
+          <ul>
+            <li>Daily: 2M tokens</li>
+            <li>Monthly: 60M tokens</li>
+            <li>Cost (GPT-4o): ~$1,800/month</li>
+            <li>Cost (GPT-4o mini): ~$180/month</li>
+          </ul>
+
+          <h2>Related Tools</h2>
+          <p><a href="llm-cost-calculator.html">Cost Calculator</a> · <a href="token-budget-calculator.html">Budget Calculator</a></p>
+
+          <h2>Related Articles</h2>
+          <ul>
+            <li><a href="ai-chatbot-development-guide.html">Chatbot Development</a></li>
+            <li><a href="prompt-engineering-token-optimization.html">Prompt Optimization</a></li>
+            <li><a href="how-much-does-it-cost-to-build-an-ai-app.html">AI App Costs</a></li>
+          </ul>
+        </div>
+
+        <aside class="blog-sidebar">
+          <div class="sidebar-card">
+            <h3>Advanced Topics</h3>
+            <ul>
+              <li><a href="ai-chatbot-development-guide.html">Chatbot Guide</a></li>
+              <li><a href="prompt-engineering-token-optimization.html">Prompt Engineering</a></li>
+              <li><a href="enterprise-ai-costs-budgeting.html">Enterprise Costs</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 TokenCalc. Free AI token counting tools.</p>
+      <nav aria-label="Footer navigation">
+        <a href="../">Home</a> · <a href="../#tool">Calculator</a> · <a href="../blog/">Blog</a> · <a href="../privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

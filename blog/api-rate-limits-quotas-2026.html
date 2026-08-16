@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI API Rate Limits and Quotas: Complete Guide 2026</title>
+  <meta name="description" content="Understand AI API rate limits for OpenAI, Anthropic, Google, and DeepSeek. Learn quotas, limits, and how to manage high-volume requests.">
+  <meta name="keywords" content="API rate limit, AI quotas, rate limiting, token limits, OpenAI limits, Anthropic limits, API quotas">
+  <meta name="author" content="TokenCalc">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tokenestimate.com/blog/api-rate-limits-quotas-2026.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI API Rate Limits and Quotas: Complete Guide 2026",
+    "description": "Complete guide to AI API rate limits and quotas.",
+    "author": { "@type": "Organization", "name": "TokenCalc" },
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4f8cff" stroke-width="2" aria-hidden="true">
+          <path d="M12 2 4 6v6c0 5 3.4 9.1 8 10 4.6-.9 8-5 8-10V6l-8-4Z"/>
+          <path d="m9 12 2 2 4-4" stroke="#22d3ee" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Token<span class="grad">Calc</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../#tool">Calculator</a>
+        <a href="ai-api-pricing-2026.html">Pricing Guide</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <span class="breadcrumb">Blog / Technical</span>
+        <h1>AI API Rate Limits & Quotas 2026</h1>
+        <p class="lead">Complete guide to understanding and managing API rate limits across providers.</p>
+        <div class="meta">
+          <span>Aug 16, 2026</span> · <span>11 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="blog-body">
+          <h2>Rate Limits vs Quotas</h2>
+          <p><strong>Rate limits</strong> control requests per minute/second. <strong>Quotas</strong> control daily/monthly usage. Both affect your API usage.</p>
+
+          <h2>OpenAI Limits (2026)</h2>
+          <table>
+            <thead>
+              <tr><th>Model</th><th> RPM</th><th>RPH</th><th>TPM</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>GPT-4o mini</td><td>5,000</td><td>100,000</td><td>50,000,000</td></tr>
+              <tr><td>GPT-4o</td><td>1,000</td><td>50,000</td><td>10,000,000</td></tr>
+              <tr><td>o1</td><td>100</td><td>5,000</td><td>1,000,000</td></tr>
+              <tr><td>o3-mini</td><td>1,000</td><td>50,000</td><td>10,000,000</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Anthropic Limits</h2>
+          <table>
+            <thead>
+              <tr><th>Model</th><th>RPM</th><th>TPM</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Claude Haiku</td><td>1,000</td><td>8,000,000</td></tr>
+              <tr><td>Claude Sonnet</td><td>500</td><td>4,000,000</td></tr>
+              <tr><td>Claude Opus</td><td>100</td><td>1,000,000</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Google Gemini Limits</h2>
+          <table>
+            <thead>
+              <tr><th>Model</th><th>RPM</th><th>RPD</th><th>TPM</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Gemini Flash</td><td>1,500</td><td>1,000,000</td><td>15,000,000</td></tr>
+              <tr><td>Gemini Pro</td><td>300</td><td>200,000</td><td>3,000,000</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Managing High Volume</h2>
+          <ol>
+            <li><strong>Batch requests:</strong> Combine multiple inputs into one call</li>
+            <li><strong>Parallel processing:</strong> Make concurrent requests</li>
+            <li><strong>Queue management:</strong> Buffer requests during peak times</li>
+            <li><strong>Upgrade tiers:</strong> Higher limits with paid plans</li>
+            <li><strong>Multi-provider:</strong> Distribute load across services</li>
+          </ol>
+
+          <h2>Monitoring Tools</h2>
+          <ul>
+            <li>Provider dashboards (OpenAI Usage, Anthropic Console)</li>
+            <li>Custom metrics with Umami/Plausible</li>
+            <li>APM tools (Datadog, New Relic)</li>
+            <li>Alerting on approaching limits</li>
+          </ul>
+
+          <h2>Related Tools</h2>
+          <p><a href="api-cost-monitor.html">Cost Monitor</a> · <a href="api-rate-limits-explained.html">Rate Limits Guide</a></p>
+
+          <h2>Related Articles</h2>
+          <ul>
+            <li><a href="multi-model-ai-architecture.html">Multi-Provider Architecture</a></li>
+            <li><a href="ai-api-error-handling.html">Error Handling</a></li>
+            <li><a href="reduce-ai-api-costs.html">Reduce Costs</a></li>
+          </ul>
+        </div>
+
+        <aside class="blog-sidebar">
+          <div class="sidebar-card">
+            <h3>Technical Guides</h3>
+            <ul>
+              <li><a href="api-rate-limits-explained.html">Rate Limits</a></li>
+              <li><a href="api-cost-monitor.html">Cost Monitor</a></li>
+              <li><a href="multi-model-ai-architecture.html">Multi-Provider</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 TokenCalc. Free AI token counting tools.</p>
+      <nav aria-label="Footer navigation">
+        <a href="../">Home</a> · <a href="../#tool">Calculator</a> · <a href="../blog/">Blog</a> · <a href="../privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

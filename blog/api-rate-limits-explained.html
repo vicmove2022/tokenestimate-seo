@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI API Rate Limits Explained: How to Avoid Throttling</title>
+  <meta name="description" content="Understand AI API rate limits for OpenAI, Anthropic, Google, and DeepSeek. Learn how to avoid throttling and handle errors gracefully.">
+  <meta name="keywords" content="API rate limit, AI rate limiting, token rate limit, OpenAI rate limit, Anthropic rate limit, API throttling">
+  <meta name="author" content="TokenCalc">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tokenestimate.com/blog/api-rate-limits-explained.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI API Rate Limits Explained: How to Avoid Throttling",
+    "description": "Complete guide to understanding and managing AI API rate limits.",
+    "author": { "@type": "Organization", "name": "TokenCalc" },
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4f8cff" stroke-width="2" aria-hidden="true">
+          <path d="M12 2 4 6v6c0 5 3.4 9.1 8 10 4.6-.9 8-5 8-10V6l-8-4Z"/>
+          <path d="m9 12 2 2 4-4" stroke="#22d3ee" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Token<span class="grad">Calc</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../#tool">Calculator</a>
+        <a href="ai-api-pricing-2026.html">Pricing Guide</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <span class="breadcrumb">Blog / Technical Guide</span>
+        <h1>AI API Rate Limits Explained</h1>
+        <p class="lead">Learn how rate limits work and strategies to avoid throttling in your AI applications.</p>
+        <div class="meta">
+          <span>Aug 16, 2026</span> · <span>9 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="blog-body">
+          <h2>What Are Rate Limits?</h2>
+          <p>Rate limits control how many API requests you can make in a given time period. They prevent abuse and ensure fair usage across all customers.</p>
+
+          <h2>Rate Limits by Provider (2026)</h2>
+          <table>
+            <thead>
+              <tr><th>Provider</th><th>Model</th><th>Requests/Minute</th><th>Tokens/Minute</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>OpenAI</td><td>GPT-4o mini</td><td>5,000</td><td>50M</td></tr>
+              <tr><td>OpenAI</td><td>GPT-4o</td><td>1,000</td><td>10M</td></tr>
+              <tr><td>OpenAI</td><td>o1</td><td>100</td><td>1M</td></tr>
+              <tr><td>OpenAI</td><td>o3-mini</td><td>1,000</td><td>10M</td></tr>
+              <tr><td>Anthropic</td><td>Claude Haiku</td><td>1,000</td><td>8M</td></tr>
+              <tr><td>Anthropic</td><td>Claude Sonnet</td><td>500</td><td>4M</td></tr>
+              <tr><td>Google</td><td>Gemini Flash</td><td>1,500</td><td>15M</td></tr>
+              <tr><td>Google</td><td>Gemini Pro</td><td>300</td><td>3M</td></tr>
+              <tr><td>DeepSeek</td><td>V3</td><td>500</td><td>5M</td></tr>
+              <tr><td>DeepSeek</td><td>R1</td><td>200</td><td>2M</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Common Rate Limit Errors</h2>
+          <ul>
+            <li><strong>429 Too Many Requests:</strong> You've exceeded the rate limit</li>
+            <li><strong>429 Rate Limit Exceeded:</strong> Token limit reached</li>
+            <li><strong>529 Origin Unavailable:</strong> Server overloaded</li>
+          </ul>
+
+          <h2>Strategies to Handle Rate Limits</h2>
+          <ol>
+            <li><strong>Implement exponential backoff:</strong> Wait and retry with increasing delays</li>
+            <li><strong>Use request queuing:</strong> Batch requests to stay within limits</li>
+            <li><strong>Mix providers:</strong> Distribute load across multiple APIs</li>
+            <li><strong>Cache responses:</strong> Avoid redundant API calls</li>
+            <li><strong>Upgrade tiers:</strong> Higher limits with paid plans</li>
+            <li><strong>Monitor usage:</strong> Track your API consumption in real-time</li>
+          </ol>
+
+          <h2>Code Example: Exponential Backoff</h2>
+          <pre><code>async function callAPIWithRetry(prompt, maxRetries = 3) {
+  for (let i = 0; i &lt;= maxRetries; i++) {
+    try {
+      return await callAPI(prompt);
+    } catch (error) {
+      if (error.status === 429 && i &lt; maxRetries) {
+        const delay = Math.pow(2, i) * 1000;
+        await sleep(delay);
+      } else {
+        throw error;
+      }
+    }
+  }
+}</code></pre>
+
+          <h2>Monitoring Your API Usage</h2>
+          <p>Track these metrics:</p>
+          <ul>
+            <li>Daily token consumption</li>
+            <li>Requests per minute</li>
+            <li>Error rates by type</li>
+            <li>Cost per request</li>
+          </ul>
+
+          <h2>Related Tools</h2>
+          <p><a href="api-cost-monitor.html">API Cost Monitor</a> · <a href="token-budget-calculator.html">Token Budget Calculator</a></p>
+
+          <h2>Related Articles</h2>
+          <ul>
+            <li><a href="ai-api-pricing-2026.html">AI API Pricing 2026</a></li>
+            <li><a href="reduce-ai-api-costs.html">Reduce AI API Costs</a></li>
+            <li><a href="best-cost-efficient-ai-models.html">Best Cost-Efficient Models</a></li>
+          </ul>
+        </div>
+
+        <aside class="blog-sidebar">
+          <div class="sidebar-card">
+            <h3>Technical Guides</h3>
+            <ul>
+              <li><a href="api-cost-monitor.html">Cost Monitor</a></li>
+              <li><a href="token-budget-calculator.html">Budget Calculator</a></li>
+              <li><a href="context-window-explained.html">Context Windows</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 TokenCalc. Free AI token counting tools.</p>
+      <nav aria-label="Footer navigation">
+        <a href="../">Home</a> · <a href="../#tool">Calculator</a> · <a href="../blog/">Blog</a> · <a href="../privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

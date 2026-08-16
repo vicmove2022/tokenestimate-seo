@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embedding Models Comparison: Costs and Performance 2026</title>
+  <meta name="description" content="Compare embedding models for vector search. OpenAI, Cohere, and open-source options with costs and performance benchmarks.">
+  <meta name="keywords" content="embedding models, vector embeddings, OpenAI embeddings, Cohere embeddings, text embeddings, similarity search">
+  <meta name="author" content="TokenCalc">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tokenestimate.com/blog/embedding-models-comparison.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8f1fd21d-3670-41e7-adf4-20d24de46fd4"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Embedding Models Comparison: Costs and Performance 2026",
+    "description": "Compare embedding models for vector search.",
+    "author": { "@type": "Organization", "name": "TokenCalc" },
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4f8cff" stroke-width="2" aria-hidden="true">
+          <path d="M12 2 4 6v6c0 5 3.4 9.1 8 10 4.6-.9 8-5 8-10V6l-8-4Z"/>
+          <path d="m9 12 2 2 4-4" stroke="#22d3ee" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Token<span class="grad">Calc</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../#tool">Calculator</a>
+        <a href="ai-api-pricing-2026.html">Pricing Guide</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <span class="breadcrumb">Blog / Embeddings</span>
+        <h1>Embedding Models Comparison 2026</h1>
+        <p class="lead">Compare costs and performance of OpenAI, Cohere, and open-source embedding models.</p>
+        <div class="meta">
+          <span>Aug 16, 2026</span> · <span>9 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="blog-body">
+          <h2>What Are Embeddings?</h2>
+          <p>Embeddings convert text into numerical vectors that capture semantic meaning. They're essential for similarity search, recommendation systems, and RAG applications.</p>
+
+          <h2>Embedding Model Comparison</h2>
+          <table>
+            <thead>
+              <tr><th>Model</th><th>Provider</th><th>Cost/1K</th><th>Dimensions</th><th>Max Tokens</th></tr>
+            </thead>
+            <tbody>
+              <tr><td text-align=center>text-embedding-3-small</td><td>OpenAI</td><td>$0.00002</td><td>1536</td><td>8191</td></tr>
+              <tr><td>text-embedding-3-large</td><td>OpenAI</td><td>$0.00013</td><td>3072</td><td>8191</td></tr>
+              <tr><td>embedding-001</td><td>Google</td><td>$0.000025</td><td>768</td><td>2048</td></tr>
+              <tr><td>text-embedding-004</td><td>Google</td><td>$0.00002</td><td>768</td><td>2048</td></tr>
+              <tr><td>embed-multilingual-v3.0</td><td>Cohere</td><td>$0.0001</td><td>1024</td><td>512</td></tr>
+              <tr><td>gte-Qwen2-7B</td><td>Alibaba</td><td>$0 (open)</td><td>3584</td><td>32768</td></tr>
+              <tr><td>nomic-embed-text-v1.5</td><td>Nomic</td><td>$0 (open)</td><td>768</td><td>8192</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Performance Benchmarks</h2>
+          <p>On MTEB benchmark (higher is better):</p>
+          <ul>
+            <li><strong>text-embedding-3-large:</strong> 64.5%</li>
+            <li><strong>gte-Qwen2-7B:</strong> 63.2%</li>
+            <li><strong>nomic-embed-text-v1.5:</strong> 62.8%</li>
+            <li><strong>text-embedding-3-small:</strong> 61.3%</li>
+            <li><strong>text-embedding-ada-002:</strong> 61.0%</li>
+          </ul>
+
+          <h2>Cost Calculation Example</h2>
+          <p>For embedding 1M documents:</p>
+          <ul>
+            <li>OpenAI small: $20</li>
+            <li>OpenAI large: $130</li>
+            <li>Google: $25</li>
+            <li>Cohere: $100</li>
+            <li>Open source (local): $0 + GPU cost</li>
+          </ul>
+
+          <h2>When to Use Each</h2>
+          <table>
+            <thead>
+              <tr><th>Use Case</th><th>Recommended</th><th>Reason</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>General purpose</td><td>text-embedding-3-small</td><td>Best value</td></tr>
+              <tr><td>High accuracy needed</td><td>text-embedding-3-large</td><td>Best performance</td></tr>
+              <tr><td>Multi-language</td><td>Cohere multilingual</td><td>Better language coverage</td></tr>
+              <tr><td>Large documents</td><td>gte-Qwen2-7B</td><td>32K context</td></tr>
+              <tr><td>Zero budget</td><td>nomic-embed-text</td><td>Free, open source</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Related Tools</h2>
+          <p><a href="token-calculator-api-integration.html">API Integration Guide</a> · <a href="llm-cost-calculator.html">Cost Calculator</a></p>
+
+          <h2>Related Articles</h2>
+          <ul>
+            <li><a href="ai-rag-systems-guide.html">RAG Systems</a></li>
+            <li><a href="ai-token-billing-explained.html">Billing Guide</a></li>
+            <li><a href="reduce-ai-api-costs.html">Reduce Costs</a></li>
+          </ul>
+        </div>
+
+        <aside class="blog-sidebar">
+          <div class="sidebar-card">
+            <h3>Embedding Resources</h3>
+            <ul>
+              <li><a href="ai-rag-systems-guide.html">RAG Guide</a></li>
+              <li><a href="token-calculator-api-integration.html">API Guide</a></li>
+              <li><a href="llm-cost-calculator.html">Cost Calculator</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 TokenCalc. Free AI token counting tools.</p>
+      <nav aria-label="Footer navigation">
+        <a href="../">Home</a> · <a href="../#tool">Calculator</a> · <a href="../blog/">Blog</a> · <a href="../privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
