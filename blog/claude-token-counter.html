@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claude Token Counter — Anthropic Token Calculator (2026)</title>
-  <meta name="description" content="Free Claude token counter. Count tokens for Claude 3.5 Opus, Sonnet, Haiku and estimate API costs. Works for all Anthropic models.">
-  <meta name="keywords" content="Claude token counter, Anthropic tokens, Claude 3.5 tokens, count Claude tokens, Claude API cost">
+  <title>Claude Token Counter: Count Tokens for Anthropic Models</title>
+  <meta name="description" content="Free Claude token counter. Count tokens for Claude 3.5 Sonnet, Claude Haiku, and all Anthropic models instantly.">
+  <meta name="keywords" content="Claude token counter, Anthropic tokens, Claude tokenizer, count Claude tokens, free token counter">
   <meta name="author" content="TokenCalc">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tokenestimate.com/blog/claude-token-counter.html">
@@ -15,12 +15,15 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Claude Token Counter — Complete Guide (2026)",
-    "description": "Free Claude token counter for all Anthropic models.",
-    "author": { "@type": "Organization", "name": "TokenCalc" },
-    "datePublished": "2026-08-16",
-    "dateModified": "2026-08-16"
+    "@type": "WebApplication",
+    "name": "Claude Token Counter",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   }
   </script>
 </head>
@@ -37,7 +40,7 @@
       </a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="../#tool">Calculator</a>
-        <a href="claude-token-guide.html">Claude Guide</a>
+        <a href="ai-api-pricing-2026.html">Pricing Guide</a>
         <a href="../blog/">Blog</a>
       </nav>
     </div>
@@ -46,11 +49,11 @@
   <main>
     <section class="blog-hero">
       <div class="container">
-        <span class="breadcrumb">Blog / Claude Guide</span>
+        <span class="breadcrumb">Blog / Tools</span>
         <h1>Claude Token Counter</h1>
-        <p class="lead">Count tokens for all Claude models and estimate API costs instantly.</p>
+        <p class="lead">Count tokens for Claude 3.5 Sonnet, Claude Haiku, and all Anthropic models.</p>
         <div class="meta">
-          <span>Aug 16, 2026</span> · <span>7 min read</span>
+          <span>Aug 16, 2026</span> · <span>5 min read</span>
         </div>
       </div>
     </section>
@@ -58,57 +61,55 @@
     <section class="blog-content">
       <div class="container">
         <div class="blog-body">
-          <h2>What Are Claude Tokens?</h2>
-          <p>Claude tokens work similarly to GPT tokens. Anthropic uses a proprietary tokenizer that can't be accessed in the browser.</p>
+          <h2>How to Use</h2>
+          <p>Paste your text below to get instant token count for Claude models.</p>
 
-          <h2>Supported Claude Models</h2>
-          <ul>
-            <li>Claude 3.5 Sonnet</li>
-            <li>Claude 3.5 Haiku</li>
-            <li>Claude 3 Opus</li>
-            <li>Claude 3 Sonnet</li>
-            <li>Claude 3 Haiku</li>
-          </ul>
-
-          <h2>Claude Pricing (2026)</h2>
+          <h2>Claude Pricing (per 1M tokens)</h2>
           <table>
             <thead>
-              <tr><th>Model</th><th>Input $/1M</th><th>Output $/1M</th><th>Context</th></tr>
+              <tr><th>Model</th><th>Input</th><th>Output</th><th>Context</th></tr>
             </thead>
             <tbody>
-              <tr><td>Claude 3.5 Haiku</td><td>$0.80</td><td>$4.00</td><td>200K</td></tr>
-              <tr><td>Claude 3.5 Sonnet</td><td>$3.00</td><td>$15.00</td><td>200K</td></tr>
-              <tr><td>Claude 3 Opus</td><td>$15.00</td><td>$75.00</td><td>200K</td></tr>
+              <tr><td>Claude Haiku</td><td>$0.80</td><td>$4.00</td><td>200K</td></tr>
+              <tr><td>Claude Sonnet</td><td>$3.00</td><td>$15.00</td><td>200K</td></tr>
+              <tr><td>Claude Opus</td><td>$15.00</td><td>$75.00</td><td>200K</td></tr>
             </tbody>
           </table>
 
-          <h2>Token Estimation</h2>
-          <p>Since Anthropic doesn't provide a browser-accessible tokenizer, we use an estimate mode (~4 characters per token for English text).</p>
+          <h2>Token Count Example</h2>
+          <pre><code>Input: "What is artificial intelligence?"
+Tokens: ~8
 
-          <h2>Cost-Saving Tips</h2>
+Input: "Explain the history of AI from 1950 to 2026, including key milestones, major breakthroughs, and notable researchers."
+Tokens: ~25</code></pre>
+
+          <h2>Claude vs OpenAI Token Differences</h2>
+          <p>Different tokenizers produce slightly different counts:</p>
           <ul>
-            <li>Use Claude Haiku for simple tasks ($0.80/1M input)</li>
-            <li>Optimize prompt length</li>
-            <li>Cache frequent responses</li>
-            <li>Use streaming for long outputs</li>
+            <li>Same text, different tokenizers = different counts</li>
+            <li>Claude uses tiktoken (p50k_base)</li>
+            <li>OpenAI GPT-4 uses cl100k_base</li>
           </ul>
 
-          <h2>Try Our Calculator</h2>
-          <p><a href="../claude-token-counter.html" class="btn btn-primary">Count Claude Tokens</a></p>
+          <h2>Related Tools</h2>
+          <p><a href="../gpt-5-token-calculator.html">GPT Token Calculator</a> · <a href="../gemini-token-counter.html">Gemini Token Counter</a></p>
 
           <h2>Related Articles</h2>
           <ul>
             <li><a href="claude-token-guide.html">Claude Token Guide</a></li>
-            <li><a href="gpt-vs-claude-vs-gemini.html">GPT vs Claude vs Gemini</a></li>
-            <li><a href="reduce-ai-api-costs.html">Reduce AI Costs</a></li>
+            <li><a href="openai-tokenizer-explained.html">Tokenizer Explained</a></li>
+            <li><a href="tiktoken-python-tutorial.html">Tiktoken Tutorial</a></li>
           </ul>
         </div>
 
         <aside class="blog-sidebar">
           <div class="sidebar-card">
-            <h3>Count Claude Tokens</h3>
-            <p>Free and instant</p>
-            <a href="../claude-token-counter.html" class="btn btn-primary">Try Tool</a>
+            <h3>Token Tools</h3>
+            <ul>
+              <li><a href="../gpt-5-token-calculator.html">GPT Calculator</a></li>
+              <li><a href="../gemini-token-counter.html">Gemini Counter</a></li>
+              <li><a href="claude-token-guide.html">Claude Guide</a></li>
+            </ul>
           </div>
         </aside>
       </div>
@@ -117,12 +118,10 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div>
-        <strong>TokenCalc</strong> · Free AI Token Calculator
-      </div>
-      <div>
-        <a href="../privacy.html">Privacy Policy</a> · © 2026 TokenCalc
-      </div>
+      <p>&copy; 2026 TokenCalc. Free AI token counting tools.</p>
+      <nav aria-label="Footer navigation">
+        <a href="../">Home</a> · <a href="../#tool">Calculator</a> · <a href="../blog/">Blog</a> · <a href="../privacy.html">Privacy</a>
+      </nav>
     </div>
   </footer>
 </body>
